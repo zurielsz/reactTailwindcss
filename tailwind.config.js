@@ -21,6 +21,9 @@ module.exports = {
       },
       boxShadowColor: {
         'link': '#2ab7f9',
+      },
+      fontFamily: {
+        nunito: 'nunito',
       }
     },
   },

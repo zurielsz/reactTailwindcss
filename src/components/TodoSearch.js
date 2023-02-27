@@ -1,8 +1,12 @@
 import React from "react";
 
-function TodoSearch() {
-  return (
+function TodoSearch({ searchValue, setSearchValue }) {
 
+  const onSearchValueChange = (event) => {
+    console.log(event.target.value);
+    setSearchValue(event.target.value);
+  };
+  return (
     <div className="relative w-full">
       <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
         <span className="text-link">
@@ -11,9 +15,15 @@ function TodoSearch() {
           </svg>
         </span>
       </div>
-      <input placeholder="Buscar" className="block w-full pl-10 p-2.5 border-b-2 text-link border-link bg-transparent focus:bg-black focus:rounded-lg placeholder:text-link text-sm focus:shadow-md focus:shadow-link focus:ring-2 focus:ring-black focus:ring-offset-0 focus:outline-none  focus:border-none"></input>
+      <input
+        placeholder="Buscar"
+        className="block w-full pl-10 p-2.5 border-b-2 text-link border-link bg-transparent focus:bg-black focus:rounded-lg placeholder:text-link text-sm focus:shadow-md focus:shadow-link focus:ring-2 focus:ring-black focus:ring-offset-0 focus:outline-none  focus:border-none"
+        value={searchValue}
+        onChange={onSearchValueChange}
+      />
     </div>
-  );
+  )
+  ;
 }
 
 export { TodoSearch };

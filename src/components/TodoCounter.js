@@ -1,9 +1,14 @@
 import React from "react";
 
-function TodoCounter() {
+function TodoCounter({total, completed}) {
+  // Si deseamos utilizar esas propiedades, se pueden pasar en los argumentos del componente 
+  // Esto es equivalente a
+  // const {total, completed} = props
+
+
   return (
     <div className="p-10 w-full">
-      <h2 className="font-semibold text-2xl text-center text-white">Has completado 2 de 3 TODOs</h2>
+        <h2 className="font-bold text-2xl text-center text-white font-nunito">Has completado {completed} de {total} TODOs</h2>
     </div>
   );
 }
