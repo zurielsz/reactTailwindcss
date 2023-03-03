@@ -1,12 +1,6 @@
 import React from "react";
 
 function TodoItem (props) {
-  // const onComplete = () => {
-  //   alert('Tarea completa ' + props.text)
-  // }
-  // const onDelete = () => {
-  //   alert('Tarea borrada ' + props.text)
-  // }
   return (
     <li className="flex justify-between w-full p-2 my-1 border-2 rounded-lg border-link">
       <span 

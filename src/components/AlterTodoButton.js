@@ -1,14 +1,14 @@
 import React from "react";
 import { TodoContext } from "../TodoContext";
 
-function CreateTodoButton() {
+function AlterTodoButton() {
   const { openModal, setOpenModal} = React.useContext(TodoContext);
   const onCliclkButton = () => {
-    setOpenModal(true);
+    setOpenModal(!openModal);
   }
   return (
     <button
-      className="p-4 text-xl font-semibold transition-all duration-500 ease-in-out transform bg-link rounded-full hover:shadow-sm hover:shadow-gray-400 hover:text-blue-900 hover:-translate-y-1 hover:scale-105"
+      className="transition-all duration-300 rotate-45 ease-in-out rounded-full hover:-translate-y-1 hover:scale-150 hover:text-red-500"
       onClick={ onCliclkButton }
       >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
@@ -18,4 +18,4 @@ function CreateTodoButton() {
   );
 }
 
-export { CreateTodoButton };
+export { AlterTodoButton };

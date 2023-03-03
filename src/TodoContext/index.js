@@ -13,14 +13,19 @@ function TodoProvider(props) {
   } = useLocalStorage('TODOS_V1', []);
 
   const [searchValue, setSearchValue] = React.useState('');
-  const completedTodos = todos.filter(todo => !!todo.completed).length
+
+  // Estado para modal 
+  const[openModal, setOpenModal] = React.useState(false);
+
+
+  const completedTodos = todos.filter(todo => !!todo.completed).length;
   const totalTodos = todos.length;
-  let searchTodos = [];
+  let searchedTodos = [];
 
   if (!searchValue.length >= 1) {
-    searchTodos = todos;
+    searchedTodos = todos;
   } else {
-    searchTodos = todos.filter(todo => 
+    searchedTodos = todos.filter(todo => 
       {
         const todoText = todo.text.toLowerCase();
         const searchText = searchValue.toLowerCase();
@@ -30,17 +35,26 @@ function TodoProvider(props) {
     )
   }
 
-  const completeTodo = (id) => {
+  const addTodo = (text) => {
+    const newTodos = [...todos];
+    newTodos.push({
+      completed:false,
+      text,
+    })
+    saveTodos(newTodos);
+  }
+
+  const completeTodo = (text) => {
     // Hay que obtener el id del TODO, hay que encontrar el indice (por el arreglo)
-    const todoIndex = todos.findIndex(todo => todo.id == id);
+    const todoIndex = todos.findIndex(todo => todo.text === text);
     // Vamos a clonar la lista de todos
     const newTodos = [...todos];
     newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
     saveTodos(newTodos);
   }
 
-  const deleteTodo = (id) => {
-    const todoIndex = todos.findIndex(todo => todo.id == id);
+  const deleteTodo = (text) => {
+    const todoIndex = todos.findIndex(todo => todo.text === text);
     const newTodos = [...todos];
     newTodos.splice(todoIndex, 1);
     saveTodos(newTodos);
@@ -54,16 +68,16 @@ function TodoProvider(props) {
       completedTodos,
       searchValue,
       setSearchValue,
-      searchTodos,
+      searchedTodos,
+      addTodo,
       completeTodo,
-      deleteTodo
+      deleteTodo,
+      openModal,
+      setOpenModal
      }}>
       {props.children}
     </TodoContext.Provider>
-
-  )
-}
-<TodoContext.Consumer></TodoContext.Consumer>
+);}
 
 
 export { TodoContext, TodoProvider }
