@@ -23,7 +23,7 @@ function useLocalStorage(itemName, initialValue) {
       } catch (error) {
         setError(error);
       }
-    }, 500)
+    }, 5000)
   });
 
   // Guardar las actualizaciones

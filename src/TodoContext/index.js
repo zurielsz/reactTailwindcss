@@ -36,6 +36,7 @@ function TodoProvider(props) {
   }
 
   const addTodo = (text) => {
+    // if (!text.trim()) return;
     const newTodos = [...todos];
     newTodos.push({
       completed:false,
