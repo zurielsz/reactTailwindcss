@@ -2,7 +2,7 @@ import React from "react";
 
 function TodoItem (props) {
   return (
-    <li className="flex justify-between w-full p-2 my-1 border-2 rounded-lg border-link">
+    <li className="flex justify-between w-full p-2 my-1 border-2 rounded-lg border-link ">
       <span 
         className={`${props.completed ? 'text-green-500': 'text-white'}`}
         onClick = { props.onComplete }

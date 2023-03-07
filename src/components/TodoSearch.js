@@ -19,6 +19,7 @@ function TodoSearch() {
         </span>
       </div>
       <input
+        type="search"
         placeholder="Buscar"
         className="block w-full pl-10 p-2.5 border-b-2 text-link border-link bg-transparent focus:bg-black focus:rounded-lg placeholder:text-link text-sm focus:shadow-md focus:shadow-link focus:ring-2 focus:ring-black focus:ring-offset-0 focus:outline-none  focus:border-none"
         value={searchValue}
